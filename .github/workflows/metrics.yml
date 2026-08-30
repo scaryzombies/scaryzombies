@@ -22,6 +22,54 @@ jobs:
           template: classic
           base: header, activity
           config_order: base.header, base.activity, music, wakatime, traffic
+          config_padding: 14, 18
+          extras_css: |
+            .items-wrapper {
+              background: #0d0b0e;
+              border: 1px solid #35151c;
+              border-radius: 8px;
+              box-sizing: border-box;
+            }
+
+            h1, h2 {
+              color: #a83246 !important;
+              letter-spacing: 0.3px;
+            }
+
+            .field {
+              color: #d8d1c7;
+            }
+
+            .field svg {
+              fill: #8f2636 !important;
+            }
+
+            .track .artist {
+              color: #827980;
+            }
+
+            .track img {
+              border: 1px solid #35151c;
+              border-radius: 3px;
+            }
+
+            .avatar {
+              border: 1px solid #8f2636;
+              box-shadow: 0 0 0 2px #1a1013;
+            }
+
+            :root {
+              --color-calendar-graph-day-bg: #171217;
+              --color-calendar-graph-day-border: #24171c;
+              --color-calendar-graph-day-L1-bg: #421923;
+              --color-calendar-graph-day-L2-bg: #68202e;
+              --color-calendar-graph-day-L3-bg: #8f2636;
+              --color-calendar-graph-day-L4-bg: #c13b50;
+              --color-calendar-graph-day-L1-border: #4d1b27;
+              --color-calendar-graph-day-L2-border: #742433;
+              --color-calendar-graph-day-L3-border: #9c2a3c;
+              --color-calendar-graph-day-L4-border: #ce4056;
+            }
           plugin_lines: yes
           plugin_isocalendar: no
           plugin_traffic: yes

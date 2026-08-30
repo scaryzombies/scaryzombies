@@ -25,7 +25,7 @@ jobs:
           config_padding: 14, 18
           extras_css: |
             .items-wrapper {
-              background: #0d0b0e;
+              background: transparent;
               border: 1px solid #35151c;
               border-radius: 8px;
               box-sizing: border-box;
@@ -56,6 +56,26 @@ jobs:
             .avatar {
               border: 1px solid #8f2636;
               box-shadow: 0 0 0 2px #1a1013;
+            }
+
+            .calendar .day[fill="#ebedf0"] {
+              fill: #21191d !important;
+            }
+
+            .calendar .day[fill="#9be9a8"] {
+              fill: #421923 !important;
+            }
+
+            .calendar .day[fill="#40c463"] {
+              fill: #68202e !important;
+            }
+
+            .calendar .day[fill="#30a14e"] {
+              fill: #8f2636 !important;
+            }
+
+            .calendar .day[fill="#216e39"] {
+              fill: #c13b50 !important;
             }
 
             :root {

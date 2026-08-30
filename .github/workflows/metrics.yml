@@ -22,8 +22,31 @@ jobs:
           template: classic
           base: header, activity
           config_order: base.header, base.activity, music, wakatime, traffic
+          config_animations: yes
           config_padding: 14, 18
           extras_css: |
+            @keyframes section-reveal {
+              from {
+                opacity: 0;
+                transform: translateY(3px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+
+            @keyframes music-pulse {
+              0%, 100% {
+                filter: drop-shadow(0 0 0 transparent);
+                opacity: 0.78;
+              }
+              50% {
+                filter: drop-shadow(0 0 3px #c13b50);
+                opacity: 1;
+              }
+            }
+
             .items-wrapper {
               background: transparent;
               border: 1px solid #35151c;
@@ -34,14 +57,52 @@ jobs:
             h1, h2 {
               color: #a83246 !important;
               letter-spacing: 0.3px;
+              font-weight: 600;
             }
 
             .field {
               color: #d8d1c7;
             }
 
+            .items-wrapper > section {
+              animation: section-reveal 360ms ease-out both;
+              position: relative;
+            }
+
+            .items-wrapper > section:nth-of-type(2) {
+              animation-delay: 60ms;
+            }
+
+            .items-wrapper > section:nth-of-type(3) {
+              animation-delay: 120ms;
+            }
+
+            .items-wrapper > section:nth-of-type(4) {
+              animation-delay: 180ms;
+            }
+
+            .items-wrapper > section + section {
+              margin-top: 11px;
+              padding-top: 10px;
+            }
+
+            .items-wrapper > section + section::before {
+              background: linear-gradient(90deg, transparent, #68202e 16%, #68202e 84%, transparent);
+              content: "";
+              height: 1px;
+              left: 6px;
+              opacity: 0.55;
+              position: absolute;
+              right: 6px;
+              top: 0;
+            }
+
             .field svg {
               fill: #8f2636 !important;
+            }
+
+            .items-wrapper > section:nth-of-type(2) > h2 svg {
+              animation: music-pulse 2.4s ease-in-out infinite;
             }
 
             .track .artist {
@@ -51,6 +112,40 @@ jobs:
             .track img {
               border: 1px solid #35151c;
               border-radius: 3px;
+              transition: border-color 160ms ease, filter 160ms ease, transform 160ms ease;
+            }
+
+            .track {
+              opacity: 0.62;
+              transition: opacity 160ms ease;
+            }
+
+            .track:nth-child(2) {
+              opacity: 0.78;
+            }
+
+            .track:nth-child(3) {
+              opacity: 0.68;
+            }
+
+            .track:first-child {
+              opacity: 1;
+            }
+
+            .track:first-child img {
+              border-color: #a83246;
+              box-shadow: 0 0 7px rgba(168, 50, 70, 0.35);
+              filter: saturate(1.08) brightness(1.04);
+            }
+
+            .track:hover {
+              opacity: 1;
+            }
+
+            .track:hover img {
+              border-color: #c13b50;
+              filter: saturate(1.12) brightness(1.08);
+              transform: scale(1.06);
             }
 
             .avatar {
